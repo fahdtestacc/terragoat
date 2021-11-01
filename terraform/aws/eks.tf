@@ -59,9 +59,9 @@ resource aws_vpc "eks_vpc" {
 }
 
 resource aws_subnet "eks_subnet1" {
-  vpc_id                  = aws_vpc.eks_vpc.id
-  cidr_block              = "10.10.10.0/24"
-  availability_zone       = "${var.region}a"
+  vpc_id            = aws_vpc.eks_vpc.id
+  cidr_block        = "10.10.10.0/24"
+  availability_zone = "${var.region}a"
   tags = merge({
     Name                                            = "${local.resource_prefix.value}-eks-subnet"
     "kubernetes.io/cluster/${local.eks_name.value}" = "shared"
